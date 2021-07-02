@@ -12,6 +12,7 @@ on:
       - 'AUTHORS.rst'
       - 'HISTORY.rst'
       - 'README.rst'
+      - 'CHANGELOG.md'
   pull_request:
     branches: [ master ]
     paths-ignore:
@@ -20,6 +21,7 @@ on:
       - 'AUTHORS.rst'
       - 'HISTORY.rst'
       - 'README.rst'
+      - 'CHANGELOG.md'
 
 jobs:
   build:
