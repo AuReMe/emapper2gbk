@@ -1,4 +1,4 @@
-# Copyright (C) 2019-2022 Clémence Frioux & Arnaud Belcour - Inria Dyliss - Pleiade
+# Copyright (C) 2019-2023 Clémence Frioux & Arnaud Belcour - Inria Dyliss - Pleiade
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Lesser General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
@@ -136,7 +136,7 @@ def create_genbank(gene_nucleic_seqs, gene_protein_seqs, annot,
             id_gene = gene_nucleic_id.split("|")[1]
         else:
             id_gene = gene_nucleic_id
-        start_position = 1
+        start_position = 0
         end_position = len(gene_nucleic_seqs[gene_nucleic_id])
         strand = 0
         new_feature_gene = sf.SeqFeature(sf.FeatureLocation(start_position,
