@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "emapper2gbk"
+dynamic = ["version"]
+authors = [{name = "AuReMe", email = "gem-aureme@inria.fr"}]
+readme = "README.rst"
+description = "Build .gbk files starting from eggnog annotation files and genomes (fasta)"
+license = {text = "LGPL-3.0-or-later"}
+
+dependencies = [
+    "biopython",
+    "ete3",
+    "gffutils",
+    "pandas",
+    "pronto",
+    "requests"
+]
+
+classifiers=[
+    'Development Status :: 2 - Pre-Alpha',
+    'Intended Audience :: Developers',
+    'License :: OSI Approved :: GNU Lesser General Public License v3 or later (LGPLv3+)',
+    'Natural Language :: English',
+    'Programming Language :: Python :: 3.6',
+    'Programming Language :: Python :: 3.7',
+    'Programming Language :: Python :: 3.8',
+]
+
+[project.scripts]
+emapper2gbk = "emapper2gbk.__main__:cli"
+
+[project.urls]
+Homepage = "https://github.com/AuReMe/emapper2gbk"
+Changelog = "https://github.com/AuReMe/emapper2gbk/blob/main/CHANGELOG.md"
+
+[tool.setuptools]
+packages = ['emapper2gbk']
+
+[tool.setuptools.dynamic]
+version = { attr = "emapper2gbk.__version__" }
+dependencies = {file = ["requirements.txt"]}
