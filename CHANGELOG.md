@@ -1,5 +1,14 @@
 # Changelog
 
+# emapper2gbk v0.3.1 (2024-02-26)
+
+## Modify
+
+* replace `setup.py`/`setup.cfg` with `pyproject.toml`.
+* update authors.rst.
+* update license year.
+* update readme.
+
 # emapper2gbk v0.3.0 (2022-10-27)
 
 ## Modify

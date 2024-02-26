@@ -38,6 +38,7 @@ Changelog = "https://github.com/AuReMe/emapper2gbk/blob/main/CHANGELOG.md"
 
 [tool.setuptools]
 packages = ['emapper2gbk']
+package-dir = {'emapper2gbk' = 'emapper2gbk'}
 
 [tool.setuptools.dynamic]
 version = { attr = "emapper2gbk.__version__" }
