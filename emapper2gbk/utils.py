@@ -227,7 +227,8 @@ def create_taxonomic_data(species_name):
             compatible_species_name = taxon.replace('/', '_')
             species_name_url = taxon.replace(' ', '%20')
             url = 'https://www.ebi.ac.uk/ena/data/taxonomy/v1/taxon/scientific-name/' + species_name_url
-
+            response = requests.get(url)
+            temp_species_informations = response.json()
             try:
                 response = requests.get(url)
             except requests.exceptions.ConnectionError:
@@ -240,7 +241,7 @@ def create_taxonomic_data(species_name):
                 taxon_found = True
             except simplejson.errors.JSONDecodeError:
                 if index==len(taxons):
-                    logger.critical('/!\\ Error with {0} this taxa has not been found in https://www.ebi.ac.uk/ena/data/taxonomy/v1/taxon/scientific-name/'.format(species_name))
+                    logger.critical('/!\\ Error with {0} this taxa has not been found in https://www.ebi.ac.uk/ena/taxonomy/rest/scientific-name/'.format(species_name))
                     logger.critical('/!\\ Check the name of the taxa and its presence in the EBI taxonomy database.')
                     logger.critical('/!\\ No genbank will be created for {0}.'.format(taxon))
                     return None
@@ -248,7 +249,7 @@ def create_taxonomic_data(species_name):
                     continue
 
             if temp_species_informations == []:
-                logger.critical('/!\\ Error with {0} this taxa has not been found in https://www.ebi.ac.uk/ena/data/taxonomy/v1/taxon/scientific-name/'.format(taxon))
+                logger.critical('/!\\ Error with {0} this taxa has not been found in https://www.ebi.ac.uk/ena/taxonomy/rest/scientific-name/'.format(taxon))
                 continue
             if taxon_found is True:
                 break
