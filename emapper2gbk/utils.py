@@ -226,9 +226,8 @@ def create_taxonomic_data(species_name):
                 continue
             compatible_species_name = taxon.replace('/', '_')
             species_name_url = taxon.replace(' ', '%20')
-            url = 'https://www.ebi.ac.uk/ena/data/taxonomy/v1/taxon/scientific-name/' + species_name_url
-            response = requests.get(url)
-            temp_species_informations = response.json()
+            url = 'https://www.ebi.ac.uk/ena/taxonomy/rest/scientific-name/' + species_name_url
+
             try:
                 response = requests.get(url)
             except requests.exceptions.ConnectionError:
