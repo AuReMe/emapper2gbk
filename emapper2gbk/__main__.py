@@ -15,16 +15,16 @@
 """Console script for emapper2gbk."""
 import argparse
 import logging
-import pkg_resources
 import os
 import sys
 import time
 
 from argparse import RawTextHelpFormatter
-from emapper2gbk.emapper2gbk import gbk_creation
-from emapper2gbk.utils import is_valid_dir, is_valid_file, is_valid_path
 
-VERSION = pkg_resources.get_distribution("emapper2gbk").version
+from emapper2gbk import __version__ as VERSION
+from emapper2gbk.emapper2gbk import gbk_creation
+from emapper2gbk.utils import is_valid_file, is_valid_path
+
 LICENSE = """Copyright (C) Pleiade and Dyliss Inria projects\n
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU Lesser General Public License as published by

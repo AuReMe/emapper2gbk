@@ -1,10 +1,15 @@
 # Changelog
 
-# emapper2gbk v0.3.1 (2024-02-26)
+# emapper2gbk v0.3.1 (2024-02-27)
+
+## Fix
+
+* issue with change of the URL for REST request to EBI.
 
 ## Modify
 
 * replace `setup.py`/`setup.cfg` with `pyproject.toml`.
+* replace use of pkg_resources that will become deprecated.
 * update authors.rst.
 * update license year.
 * update readme.

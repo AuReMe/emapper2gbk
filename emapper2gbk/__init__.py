@@ -14,6 +14,6 @@
 
 from emapper2gbk.emapper2gbk import *
 
-__version__ = '0.3.0'
+__version__ = '0.3.1'
 """ version of the package
 """ 
