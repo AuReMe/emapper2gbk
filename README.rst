@@ -24,6 +24,12 @@ There are two main modes:
 
 Belcour* A, Frioux* C, Aite M, Bretaudeau A, Hildebrand F, Siegel A. Metage2Metabo, microbiota-scale metabolic complementarity for the identification of key species. eLife 2020;9:e61968 `https://doi.org/10.7554/eLife.61968 <https://doi.org/10.7554/eLife.61968>`_ .
 
+
+License
+--------
+
+This project is licensed under the GNU LGPL-3.0-or-later - see the [LICENSE.md](https://github.com/AuReMe/emapper2gbk/blob/main/LICENSE) file for details.
+
 Main inputs
 -----------
 
