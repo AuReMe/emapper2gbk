@@ -28,7 +28,7 @@ Belcour* A, Frioux* C, Aite M, Bretaudeau A, Hildebrand F, Siegel A. Metage2Meta
 License
 --------
 
-This project is licensed under the GNU LGPL-3.0-or-later - see the [LICENSE.md](https://github.com/AuReMe/emapper2gbk/blob/main/LICENSE) file for details.
+This project is licensed under the GNU LGPL-3.0-or-later - see the `LICENSE <https://github.com/AuReMe/emapper2gbk/blob/main/LICENSE>`_ file for details.
 
 Main inputs
 -----------
