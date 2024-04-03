@@ -366,4 +366,4 @@ Convert GFF, fastas, annotation table and species name into Genbank.
 License
 -------
 
-This project is licensed under the GNU LGPL-3.0-or-later - see the `LICENSE <https://github.com/AuReMe/emapper2gbk/blob/main/LICENSE>`_ file for details.
+This project is licensed under the GNU LGPL-3.0-or-later - see the `LICENSE file <https://github.com/AuReMe/emapper2gbk/blob/main/LICENSE>`__ for details.
