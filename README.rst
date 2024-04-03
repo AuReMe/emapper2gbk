@@ -24,12 +24,6 @@ There are two main modes:
 
 Belcour* A, Frioux* C, Aite M, Bretaudeau A, Hildebrand F, Siegel A. Metage2Metabo, microbiota-scale metabolic complementarity for the identification of key species. eLife 2020;9:e61968 `https://doi.org/10.7554/eLife.61968 <https://doi.org/10.7554/eLife.61968>`_ .
 
-
-License
---------
-
-This project is licensed under the GNU LGPL-3.0-or-later - see the `LICENSE <https://github.com/AuReMe/emapper2gbk/blob/main/LICENSE>`_ file for details.
-
 Main inputs
 -----------
 
@@ -44,7 +38,7 @@ For each annotated list of genes, inputs are:
 
 In addition, as optional files:
 
-* the name of the considered organism (can be "bacteria" or "metagenome") or a file with organisms names (matching the genomes names).
+* the name of the considered organism (can be "bacteria" or "metagenome"), a full lineage of the organism (such as `Bacteria;Pseudomonadota;Gammaproteobacteria;Enterobacterales;Enterobacteriaceae;Escherichia,Escherichia coli`) or a file with organisms names (matching the genomes names).
 * the merge option to merge genes into fake contigs.
 * the number of available cores for multiprocessing (when working on multiple genomes).
 * a go-basic file of GO ontology (if not given, emapper2gbk will download a copy and use it).
@@ -89,7 +83,7 @@ For each genomes, inputs are:
 
 In addition, as optional files:
 
-* the name of the considered organism (can be "bacteria") or a file with organisms names (matching the genomes names).
+* the name of the considered organism (can be "bacteria"), a full lineage of the organism (such as `Bacteria;Pseudomonadota;Gammaproteobacteria;Enterobacterales;Enterobacteriaceae;Escherichia,Escherichia coli`) or a file with organisms names (matching the genomes names).
 * the number of available cores for multiprocessing (when working on multiple genomes).
 * a go-basic file of GO ontology (if not given, emapper2gbk will download a copy and use it).
 
@@ -192,6 +186,17 @@ For gmove, the proteins in the faa and eggnogg-mapper files will be prefixed wit
 It is also possible to use the GFF created by eggnog-mapper (if a fasta genome was given as input to eggnog-mapper) with ``-gt eggnog``.
 An example of such use can be seen in the `test folder <https://github.com/AuReMe/emapper2gbk/tree/master/tests/test_data/data_eggnog>`__.
 
+Taxonomic information
+~~~~~~~~~~~~~~~~~~~~~
+
+There is 3 possible ways to give taxonomic information to emapper2gbk:
+
+* `-n "Scientific name"`: using only the -n option, it is possible to give a scientific name of an organism (compliant with the NCBI Taxonomy database). This name will be queried against the EBI to extract taxonomic information.
+
+* `-n "Kingdom;Order;Class;Family;Genus;Species" --ete`: adding the `--ete` parameter will change how `-n` works, it will then expect a full lineage (compliant with NCBI Taxonomy database, such as `Bacteria;Pseudomonadota;Gammaproteobacteria;Enterobacterales;Enterobacteriaceae;Escherichia,Escherichia coli`). This will be parsed by the ete3 package to extract the taxonomic information.
+
+* `-nf taxonomic_information.tsv`: for multiple genomes, it is possible to use the option `-nf`. It expects a tsv file with a first column containing name of the input files and a second column with the scientific name (or lineage) of the associated organism. An example (`organism_names.tsv <https://github.com/AuReMe/emapper2gbk/blob/main/tests/test_data/organism_names.tsv>`__) is present in the test folder.
+
 Dependencies and installation
 -----------------------------
 
@@ -201,6 +206,7 @@ Dependencies
 All are described in ``requirements.txt`` and can be installed with ``pip install -r requirements.txt``.
 
 * biopython
+* ete
 * gffutils
 * pandas
 * pronto
@@ -278,12 +284,11 @@ Convert GFF, fastas, annotation table and species name into Genbank.
 
     .. code-block:: sh
 
-        usage: emapper2gbk genomes [-h] -fn FASTANUCLEIC -fp FASTAPROT -o OUPUT_DIR -g GFF [-gt GFF_TYPE] [-nf NAMEFILE]
-                                [-n NAME] -a ANNOTATION [-c CPU] [-go GOBASIC] [-q] [--keep-gff-annotation]
+        usage: emapper2gbk genomes [-h] -fn FASTANUCLEIC -fp FASTAPROT -o OUPUT_DIR -g GFF [-gt GFF_TYPE] [-nf NAMEFILE] [-n NAME] -a ANNOTATION [-c CPU] [-go GOBASIC] [-q] [--keep-gff-annotation] [--ete]
 
         Build a gbk file for each genome with an annotation file for each
 
-        optional arguments:
+        options:
         -h, --help            show this help message and exit
         -fn FASTANUCLEIC, --fastanucleic FASTANUCLEIC
                                 fna file or directory
@@ -293,21 +298,20 @@ Convert GFF, fastas, annotation table and species name into Genbank.
                                 output directory/file path
         -g GFF, --gff GFF     gff file or directory
         -gt GFF_TYPE, --gff-type GFF_TYPE
-                                gff type, by default emapper2gbk search for CDS with gene as Parent in the GFF, but by using
-                                the '-gt cds_only' option emapper2gbk will only use the CDS information from the genome
+                                gff type, by default emapper2gbk search for CDS with gene as Parent in the GFF, but by using the '-gt cds_only' option emapper2gbk will only use the CDS information from the genome, by using '-gt gmove' emapper2gbk will use mRNA to find CDS, by
+                                using 'eggnog' emapper2gbk will use the output ifles of eggnog-mapper
         -nf NAMEFILE, --namefile NAMEFILE
-                                organism/genome name (col 2) associated to genome file basenames (col 1). Default =
-                                'metagenome' for metagenomic and 'cellular organisms' for genomic
+                                organism/genome name (col 2) associated to genome file basenames (col 1). Default = 'metagenome' for metagenomic and 'cellular organisms' for genomic
         -n NAME, --name NAME  organism/genome name in quotes
         -a ANNOTATION, --annotation ANNOTATION
                                 eggnog annotation file or directory
         -c CPU, --cpu CPU     cpu number for metagenomic mode or genome mode using input directories
         -go GOBASIC, --gobasic GOBASIC
-                                go ontology, GOBASIC is either the name of an existing file containing the GO Ontology or the
-                                name of the file that will be created by emapper2gbk containing the GO Ontology
+                                go ontology, GOBASIC is either the name of an existing file containing the GO Ontology or the name of the file that will be created by emapper2gbk containing the GO Ontology
         -q, --quiet           quiet mode, only warning, errors logged into console
         --keep-gff-annotation
                                 Copy the annotation from the GFF (product) into the genbank output file.
+        --ete                 Use ete3 NCBITaxa instead of query on the EBI Taxonomy Database for taxonomic ID assignation (useful if there is no internet access, except that ete3 NCBITaxa database must have been downloaded before).
 
   * Examples
 
@@ -325,12 +329,11 @@ Convert GFF, fastas, annotation table and species name into Genbank.
 
     .. code-block:: sh
 
-        usage: emapper2gbk genes [-h] -fn FASTANUCLEIC -fp FASTAPROT -o OUPUT_DIR [--one-annot-file] -a ANNOTATION [-c CPU]
-                                [-n NAME] [-nf NAMEFILE] [-go GOBASIC] [--merge MERGE] [-q]
+        usage: emapper2gbk genes [-h] -fn FASTANUCLEIC -fp FASTAPROT -o OUPUT_DIR -a ANNOTATION [-c CPU] [-n NAME] [-nf NAMEFILE] [-go GOBASIC] [--merge MERGE] [-q] [--ete]
 
-        Build a gbk file for each genome/set of genes with an annotation file for each
+        Use the annotation of a complete gene catalogue and build gbk files for each set of genes (fna) and proteins (faa) from input directories
 
-        optional arguments:
+        options:
         -h, --help            show this help message and exit
         -fn FASTANUCLEIC, --fastanucleic FASTANUCLEIC
                                 fna file or directory
@@ -338,19 +341,17 @@ Convert GFF, fastas, annotation table and species name into Genbank.
                                 faa file or directory
         -o OUPUT_DIR, --out OUPUT_DIR
                                 output directory/file path
-        --one-annot-file      Option to use when there is only one annotation file for multiples genes fastas.
         -a ANNOTATION, --annotation ANNOTATION
                                 eggnog annotation file or directory
         -c CPU, --cpu CPU     cpu number for metagenomic mode or genome mode using input directories
         -n NAME, --name NAME  organism/genome name in quotes
         -nf NAMEFILE, --namefile NAMEFILE
-                                organism/genome name (col 2) associated to genome file basenames (col 1). Default =
-                                'metagenome' for metagenomic and 'cellular organisms' for genomic
+                                organism/genome name (col 2) associated to genome file basenames (col 1). Default = 'metagenome' for metagenomic and 'cellular organisms' for genomic
         -go GOBASIC, --gobasic GOBASIC
-                                go ontology, GOBASIC is either the name of an existing file containing the GO Ontology or the
-                                name of the file that will be created by emapper2gbk containing the GO Ontology
+                                go ontology, GOBASIC is either the name of an existing file containing the GO Ontology or the name of the file that will be created by emapper2gbk containing the GO Ontology
         --merge MERGE         Number of gene sequences to merge into fake contig from a same file in the genbank file.
         -q, --quiet           quiet mode, only warning, errors logged into console
+        --ete                 Use ete3 NCBITaxa instead of query on the EBI Taxonomy Database for taxonomic ID assignation (useful if there is no internet access, except that ete3 NCBITaxa database must have been downloaded before).
 
   * Example
 
@@ -358,3 +359,7 @@ Convert GFF, fastas, annotation table and species name into Genbank.
 
       emapper2gbk genes -fn genome_dir/ -fp proteome_dir/ -o gbk_dir/ -a gene_cat_ggnog_annotation.tsv [-go go-basic.obo]
 
+License
+-------
+
+This project is licensed under the GNU LGPL-3.0-or-later - see the `LICENSE <https://github.com/AuReMe/emapper2gbk/blob/main/LICENSE>`_ file for details.
