@@ -24,6 +24,10 @@ There are two main modes:
 
 Belcour* A, Frioux* C, Aite M, Bretaudeau A, Hildebrand F, Siegel A. Metage2Metabo, microbiota-scale metabolic complementarity for the identification of key species. eLife 2020;9:e61968 `https://doi.org/10.7554/eLife.61968 <https://doi.org/10.7554/eLife.61968>`_ .
 
+.. contents:: Table of contents
+   :backlinks: top
+   :local:
+
 Main inputs
 -----------
 
@@ -83,7 +87,7 @@ For each genomes, inputs are:
 
 In addition, as optional files:
 
-* the name of the considered organism (can be "bacteria"), a full lineage of the organism (such as `Bacteria;Pseudomonadota;Gammaproteobacteria;Enterobacterales;Enterobacteriaceae;Escherichia,Escherichia coli`) or a file with organisms names (matching the genomes names).
+* the name of the considered organism (can be "bacteria"), a full lineage of the organism (such as ``Bacteria;Pseudomonadota;Gammaproteobacteria;Enterobacterales;Enterobacteriaceae;Escherichia,Escherichia coli``) or a file with organisms names (matching the genomes names).
 * the number of available cores for multiprocessing (when working on multiple genomes).
 * a go-basic file of GO ontology (if not given, emapper2gbk will download a copy and use it).
 
@@ -191,11 +195,11 @@ Taxonomic information
 
 There is 3 possible ways to give taxonomic information to emapper2gbk:
 
-* `-n "Scientific name"`: using only the -n option, it is possible to give a scientific name of an organism (compliant with the NCBI Taxonomy database). This name will be queried against the EBI to extract taxonomic information.
+* ``-n "Scientific name"``: using only the -n option, it is possible to give a scientific name of an organism (compliant with the NCBI Taxonomy database). This name will be queried against the EBI to extract taxonomic information.
 
-* `-n "Kingdom;Order;Class;Family;Genus;Species" --ete`: adding the `--ete` parameter will change how `-n` works, it will then expect a full lineage (compliant with NCBI Taxonomy database, such as `Bacteria;Pseudomonadota;Gammaproteobacteria;Enterobacterales;Enterobacteriaceae;Escherichia,Escherichia coli`). This will be parsed by the ete3 package to extract the taxonomic information.
+* ``-n "Kingdom;Order;Class;Family;Genus;Species`` --ete`: adding the ``--ete`` parameter will change how `-n` works, it will then expect a full lineage (compliant with NCBI Taxonomy database, such as ``Bacteria;Pseudomonadota;Gammaproteobacteria;Enterobacterales;Enterobacteriaceae;Escherichia,Escherichia coli``). This will be parsed by the ete3 package to extract the taxonomic information.
 
-* `-nf taxonomic_information.tsv`: for multiple genomes, it is possible to use the option `-nf`. It expects a tsv file with a first column containing name of the input files and a second column with the scientific name (or lineage) of the associated organism. An example (`organism_names.tsv <https://github.com/AuReMe/emapper2gbk/blob/main/tests/test_data/organism_names.tsv>`__) is present in the test folder.
+* ``-nf taxonomic_information.tsv``: for multiple genomes, it is possible to use the option ``-nf``. It expects a tsv file with a first column containing name of the input files and a second column with the scientific name (or lineage) of the associated organism. An example (`organism_names.tsv <https://github.com/AuReMe/emapper2gbk/blob/main/tests/test_data/organism_names.tsv>`__) is present in the test folder.
 
 Dependencies and installation
 -----------------------------
