@@ -219,10 +219,14 @@ All are described in ``requirements.txt`` and can be installed with ``pip instal
 Install
 ~~~~~~~
 
+**Temporary warning**: Due to changes in SQLite, ete3 is not working with newer version of SQLite (equal or superior to `3.49.1`).
+As ete3 is not maintained, we have replaced `ete3` with `ete4`. But ete4 is not yet available on Pypi. This adds a new step for the installation of emapper2gbk.
+
 * From this cloned repository
 
 .. code-block:: sh
 
+    pip install git+https://github.com/etetoolkit/ete.git@a96d66643b7dd53c1d60968b610c5cd6c9497a9c
     pip install -r requirements.txt
     pip install .
 
@@ -230,6 +234,7 @@ Install
 
 .. code-block:: sh
 
+    pip install git+https://github.com/etetoolkit/ete.git@a96d66643b7dd53c1d60968b610c5cd6c9497a9c
     pip install emapper2gbk
 
 Usage

@@ -1,4 +1,4 @@
-# Copyright (C) 2019-2024 Clémence Frioux & Arnaud Belcour - Inria Dyliss - Pleiade
+# Copyright (C) 2019-2025 Clémence Frioux & Arnaud Belcour - Inria Dyliss - Pleiade
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Lesser General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
@@ -42,7 +42,7 @@ def gbk_creation(nucleic_fasta:str, protein_fasta:str, annot:str,
         gff_type (str, optional): format of gff file or dir. Defaults to None.
         merge_genes_fake_contig (int, optional): merge genes into fake contig. The int associted to merge is the number of genes per fake contigs.
         keep_gff_annot (bool): copy the annotation present in the GFF file into the Genbank file.
-        ete_option (bool): to use ete3 NCBITaxa database for taxonomic ID assignation instead of request on the EBI taxonomy database.
+        ete_option (bool): to use ete4 NCBITaxa database for taxonomic ID assignation instead of request on the EBI taxonomy database.
     """
     # Check if inputs are folders or files.
     types = {input_file: 'directory' if os.path.isdir(input_file)

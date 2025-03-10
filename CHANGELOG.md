@@ -1,5 +1,15 @@
 # Changelog
 
+# emapper2gbk v0.3.2 (2025-03-10)
+
+## Modify
+
+* replace `ete3` with `ete4`.
+
+## Fix
+
+* issue with `ete3` (new version of SQLite is incompatible with ete3.)
+
 # emapper2gbk v0.3.1 (2024-02-27)
 
 ## Fix

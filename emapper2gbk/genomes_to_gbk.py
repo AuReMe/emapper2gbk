@@ -1,4 +1,4 @@
-# Copyright (C) 2019-2024 Clémence Frioux & Arnaud Belcour - Inria Dyliss - Pleiade
+# Copyright (C) 2019-2025 Clémence Frioux & Arnaud Belcour - Inria Dyliss - Pleiade
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Lesser General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
@@ -90,7 +90,7 @@ def gff_to_gbk(nucleic_fasta: str, protein_fasta: str, annot: Union[str, dict],
         output_path (str): output file or directory
         gobasic (str, dict): path to go-basic.obo file or dictionary
         keep_gff_annot (bool): copy the annotation present in the GFF file into the Genbank file.
-        ete_option (bool): to use ete3 NCBITaxa database for taxonomic ID assignation instead of request on the EBI taxonomy database.
+        ete_option (bool): to use ete4 NCBITaxa database for taxonomic ID assignation instead of request on the EBI taxonomy database.
     """
     if gff_type not in ['default', 'CDS', 'mRNA', 'gene', 'gmove', 'eggnog']:
         logger.critical('gff_type must be defined either: default, CDS (for Prodigal/Prokka GFF), mRNA, gene, gmove or eggnog (for eggnog-mapper output).')

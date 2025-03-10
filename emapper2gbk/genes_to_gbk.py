@@ -1,4 +1,4 @@
-# Copyright (C) 2019-2024 Clémence Frioux & Arnaud Belcour - Inria Dyliss - Pleiade
+# Copyright (C) 2019-2025 Clémence Frioux & Arnaud Belcour - Inria Dyliss - Pleiade
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Lesser General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
@@ -52,7 +52,7 @@ def faa_to_gbk(nucleic_fasta:str, protein_fasta:str, annot:Union[str, dict],
         output_path (str): output file or directory
         gobasic (str): path to go-basic.obo file or dictionary
         merge_genes_fake_contig (int): merge genes into fake contig. The int associted to merge is the number of genes per fake contigs.
-        ete_option (bool): to use ete3 NCBITaxa database for taxonomic ID assignation instead of request on the EBI taxonomy database.
+        ete_option (bool): to use ete4 NCBITaxa database for taxonomic ID assignation instead of request on the EBI taxonomy database.
     """
     check_valid_path([nucleic_fasta, protein_fasta])
 

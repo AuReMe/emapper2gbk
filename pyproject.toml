@@ -12,7 +12,6 @@ license = {text = "LGPL-3.0-or-later"}
 
 dependencies = [
     "biopython",
-    "ete3",
     "gffutils",
     "pandas",
     "pronto",
@@ -24,9 +23,7 @@ classifiers=[
     'Intended Audience :: Developers',
     'License :: OSI Approved :: GNU Lesser General Public License v3 or later (LGPLv3+)',
     'Natural Language :: English',
-    'Programming Language :: Python :: 3.6',
-    'Programming Language :: Python :: 3.7',
-    'Programming Language :: Python :: 3.8',
+    'Programming Language :: Python :: 3.9',
 ]
 
 [project.scripts]
