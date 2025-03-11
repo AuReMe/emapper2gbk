@@ -12,7 +12,6 @@
 # You should have received a copy of the GNU Lesser General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>
 
-import sys
 import logging
 
 from Bio import SeqFeature as sf
@@ -21,7 +20,8 @@ from Bio.Seq import Seq
 from collections import OrderedDict
 from typing import Union
 
-from emapper2gbk.utils import create_cds_feature, check_valid_path, is_valid_file, create_GO_namespaces_alternatives, read_annotation, create_taxonomic_data, create_taxonomic_data_ete, get_basename, record_info
+from emapper2gbk.utils import create_cds_feature, check_valid_path, create_GO_namespaces_alternatives, read_annotation, \
+                                create_taxonomic_data, create_taxonomic_data_ete, get_basename, record_info
 
 logger = logging.getLogger(__name__)
 

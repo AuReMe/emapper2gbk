@@ -219,8 +219,8 @@ All are described in ``requirements.txt`` and can be installed with ``pip instal
 Install
 ~~~~~~~
 
-**Temporary warning**: Due to changes in SQLite, ete3 is not working with newer version of SQLite (equal or superior to `3.49.1`).
-As ete3 is not maintained, we have replaced `ete3` with `ete4`. But ete4 is not yet available on Pypi. This adds a new step for the installation of emapper2gbk.
+**Temporary warning**: Due to changes in SQLite, ete3 is not working with newer version of SQLite (equal or superior to ``3.49.1``).
+As ete3 is not maintained, we have replaced ``ete3`` with ``ete4``. But ete4 is not yet available on Pypi. This adds a new step for the installation of emapper2gbk.
 
 * From this cloned repository
 
@@ -307,8 +307,8 @@ Convert GFF, fastas, annotation table and species name into Genbank.
                                 output directory/file path
         -g GFF, --gff GFF     gff file or directory
         -gt GFF_TYPE, --gff-type GFF_TYPE
-                                gff type, by default emapper2gbk search for CDS with gene as Parent in the GFF, but by using the '-gt cds_only' option emapper2gbk will only use the CDS information from the genome, by using '-gt gmove' emapper2gbk will use mRNA to find CDS, by
-                                using 'eggnog' emapper2gbk will use the output ifles of eggnog-mapper
+                                gff type, by default emapper2gbk search for CDS with gene as Parent in the GFF. By giving '-gt CDS' option, emapper2gbk will only use the CDS information from the genome. With '-gt gmove' (or '-gt mRNA'), emapper2gbk will use mRNA to find CDS. By
+                                giving '-gt gene', emapper2gbk will use mRNA to find CDS . With 'eggnog' emapper2gbk will use the output files of eggnog-mapper.
         -nf NAMEFILE, --namefile NAMEFILE
                                 organism/genome name (col 2) associated to genome file basenames (col 1). Default = 'metagenome' for metagenomic and 'cellular organisms' for genomic
         -n NAME, --name NAME  organism/genome name in quotes
@@ -320,7 +320,7 @@ Convert GFF, fastas, annotation table and species name into Genbank.
         -q, --quiet           quiet mode, only warning, errors logged into console
         --keep-gff-annotation
                                 Copy the annotation from the GFF (product) into the genbank output file.
-        --ete                 Use ete3 NCBITaxa instead of query on the EBI Taxonomy Database for taxonomic ID assignation (useful if there is no internet access, except that ete3 NCBITaxa database must have been downloaded before).
+        --ete                 Use ete4 NCBITaxa instead of query on the EBI Taxonomy Database for taxonomic ID assignation (useful if there is no internet access, except that ete4 NCBITaxa database must have been downloaded before).
 
   * Examples
 
@@ -360,7 +360,7 @@ Convert GFF, fastas, annotation table and species name into Genbank.
                                 go ontology, GOBASIC is either the name of an existing file containing the GO Ontology or the name of the file that will be created by emapper2gbk containing the GO Ontology
         --merge MERGE         Number of gene sequences to merge into fake contig from a same file in the genbank file.
         -q, --quiet           quiet mode, only warning, errors logged into console
-        --ete                 Use ete3 NCBITaxa instead of query on the EBI Taxonomy Database for taxonomic ID assignation (useful if there is no internet access, except that ete3 NCBITaxa database must have been downloaded before).
+        --ete                 Use ete4 NCBITaxa instead of query on the EBI Taxonomy Database for taxonomic ID assignation (useful if there is no internet access, except that ete4 NCBITaxa database must have been downloaded before).
 
   * Example
 

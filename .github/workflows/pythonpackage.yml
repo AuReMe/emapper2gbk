@@ -28,7 +28,7 @@ jobs:
     strategy:
       matrix:
         platform: [ubuntu-latest, macos-latest, windows-latest]
-        python-version: [3.7]
+        python-version: [3.9]
     runs-on: ${{ matrix.platform }}
 
     steps:
@@ -40,6 +40,7 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
+        pip install git+https://github.com/etetoolkit/ete.git@a96d66643b7dd53c1d60968b610c5cd6c9497a9c
         pip install -r requirements.txt
     #- name: Lint with flake8
       #run: |

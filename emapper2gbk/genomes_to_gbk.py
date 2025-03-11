@@ -36,8 +36,6 @@ as value and adapt the condition used for the others annotations (EC, Go term).
 
 import gffutils
 import logging
-import re
-import sys
 
 from Bio import SeqFeature as sf
 from Bio import SeqIO
