@@ -1,6 +1,6 @@
 # Changelog
 
-# emapper2gbk v0.3.2 (2025-03-10)
+# emapper2gbk v0.3.2 (2025-04-02)
 
 ## Modify
 
