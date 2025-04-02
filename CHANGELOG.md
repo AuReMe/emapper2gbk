@@ -5,6 +5,7 @@
 ## Modify
 
 * replace `ete3` with `ete4`.
+* use Trusted Publisher to publish on PyPI.
 
 ## Fix
 
