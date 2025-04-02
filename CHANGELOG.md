@@ -9,7 +9,7 @@
 ## Fix
 
 * issue with `ete3` (new version of SQLite is incompatible with ete3).
-* issue with `cds_only` still in doc where it has been repalced by `CDS`.
+* issue with `cds_only` still in doc where it has been replaced by `CDS`.
 
 # emapper2gbk v0.3.1 (2024-02-27)
 
