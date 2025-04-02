@@ -1,5 +1,17 @@
 # Changelog
 
+# emapper2gbk v0.3.2 (2025-04-02)
+
+## Modify
+
+* replace `ete3` with `ete4`.
+* use Trusted Publisher to publish on PyPI.
+
+## Fix
+
+* issue with `ete3` (new version of SQLite is incompatible with ete3).
+* issue with `cds_only` still in doc where it has been replaced by `CDS`.
+
 # emapper2gbk v0.3.1 (2024-02-27)
 
 ## Fix

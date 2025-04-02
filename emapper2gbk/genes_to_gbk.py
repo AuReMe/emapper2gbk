@@ -1,4 +1,4 @@
-# Copyright (C) 2019-2024 Clémence Frioux & Arnaud Belcour - Inria Dyliss - Pleiade
+# Copyright (C) 2019-2025 Clémence Frioux & Arnaud Belcour - Inria Dyliss - Pleiade
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Lesser General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
@@ -12,7 +12,6 @@
 # You should have received a copy of the GNU Lesser General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>
 
-import sys
 import logging
 
 from Bio import SeqFeature as sf
@@ -21,7 +20,8 @@ from Bio.Seq import Seq
 from collections import OrderedDict
 from typing import Union
 
-from emapper2gbk.utils import create_cds_feature, check_valid_path, is_valid_file, create_GO_namespaces_alternatives, read_annotation, create_taxonomic_data, create_taxonomic_data_ete, get_basename, record_info
+from emapper2gbk.utils import create_cds_feature, check_valid_path, create_GO_namespaces_alternatives, read_annotation, \
+                                create_taxonomic_data, create_taxonomic_data_ete, get_basename, record_info
 
 logger = logging.getLogger(__name__)
 
@@ -52,7 +52,7 @@ def faa_to_gbk(nucleic_fasta:str, protein_fasta:str, annot:Union[str, dict],
         output_path (str): output file or directory
         gobasic (str): path to go-basic.obo file or dictionary
         merge_genes_fake_contig (int): merge genes into fake contig. The int associted to merge is the number of genes per fake contigs.
-        ete_option (bool): to use ete3 NCBITaxa database for taxonomic ID assignation instead of request on the EBI taxonomy database.
+        ete_option (bool): to use ete4 NCBITaxa database for taxonomic ID assignation instead of request on the EBI taxonomy database.
     """
     check_valid_path([nucleic_fasta, protein_fasta])
 

@@ -197,7 +197,7 @@ There is 3 possible ways to give taxonomic information to emapper2gbk:
 
 * ``-n "Scientific name"``: using only the -n option, it is possible to give a scientific name of an organism (compliant with the NCBI Taxonomy database). This name will be queried against the EBI to extract taxonomic information.
 
-* ``-n "Kingdom;Order;Class;Family;Genus;Species`` --ete`: adding the ``--ete`` parameter will change how `-n` works, it will then expect a full lineage (compliant with NCBI Taxonomy database, such as ``Bacteria;Pseudomonadota;Gammaproteobacteria;Enterobacterales;Enterobacteriaceae;Escherichia,Escherichia coli``). This will be parsed by the ete3 package to extract the taxonomic information.
+* ``-n "Kingdom;Order;Class;Family;Genus;Species`` --ete`: adding the ``--ete`` parameter will change how `-n` works, it will then expect a full lineage (compliant with NCBI Taxonomy database, such as ``Bacteria;Pseudomonadota;Gammaproteobacteria;Enterobacterales;Enterobacteriaceae;Escherichia,Escherichia coli``). This will be parsed by the ete4 package to extract the taxonomic information.
 
 * ``-nf taxonomic_information.tsv``: for multiple genomes, it is possible to use the option ``-nf``. It expects a tsv file with a first column containing name of the input files and a second column with the scientific name (or lineage) of the associated organism. An example (`organism_names.tsv <https://github.com/AuReMe/emapper2gbk/blob/main/tests/test_data/organism_names.tsv>`__) is present in the test folder.
 
@@ -226,7 +226,7 @@ Install
     pip install -r requirements.txt
     pip install .
 
-* From Pypi
+* From PyPI:
 
 .. code-block:: sh
 
@@ -302,8 +302,8 @@ Convert GFF, fastas, annotation table and species name into Genbank.
                                 output directory/file path
         -g GFF, --gff GFF     gff file or directory
         -gt GFF_TYPE, --gff-type GFF_TYPE
-                                gff type, by default emapper2gbk search for CDS with gene as Parent in the GFF, but by using the '-gt cds_only' option emapper2gbk will only use the CDS information from the genome, by using '-gt gmove' emapper2gbk will use mRNA to find CDS, by
-                                using 'eggnog' emapper2gbk will use the output ifles of eggnog-mapper
+                                gff type, by default emapper2gbk search for CDS with gene as Parent in the GFF. By giving '-gt CDS' option, emapper2gbk will only use the CDS information from the genome. With '-gt gmove' (or '-gt mRNA'), emapper2gbk will use mRNA to find CDS. By
+                                giving '-gt gene', emapper2gbk will use mRNA to find CDS . With 'eggnog' emapper2gbk will use the output files of eggnog-mapper.
         -nf NAMEFILE, --namefile NAMEFILE
                                 organism/genome name (col 2) associated to genome file basenames (col 1). Default = 'metagenome' for metagenomic and 'cellular organisms' for genomic
         -n NAME, --name NAME  organism/genome name in quotes
@@ -315,7 +315,7 @@ Convert GFF, fastas, annotation table and species name into Genbank.
         -q, --quiet           quiet mode, only warning, errors logged into console
         --keep-gff-annotation
                                 Copy the annotation from the GFF (product) into the genbank output file.
-        --ete                 Use ete3 NCBITaxa instead of query on the EBI Taxonomy Database for taxonomic ID assignation (useful if there is no internet access, except that ete3 NCBITaxa database must have been downloaded before).
+        --ete                 Use ete4 NCBITaxa instead of query on the EBI Taxonomy Database for taxonomic ID assignation (useful if there is no internet access, except that ete4 NCBITaxa database must have been downloaded before).
 
   * Examples
 
@@ -355,7 +355,7 @@ Convert GFF, fastas, annotation table and species name into Genbank.
                                 go ontology, GOBASIC is either the name of an existing file containing the GO Ontology or the name of the file that will be created by emapper2gbk containing the GO Ontology
         --merge MERGE         Number of gene sequences to merge into fake contig from a same file in the genbank file.
         -q, --quiet           quiet mode, only warning, errors logged into console
-        --ete                 Use ete3 NCBITaxa instead of query on the EBI Taxonomy Database for taxonomic ID assignation (useful if there is no internet access, except that ete3 NCBITaxa database must have been downloaded before).
+        --ete                 Use ete4 NCBITaxa instead of query on the EBI Taxonomy Database for taxonomic ID assignation (useful if there is no internet access, except that ete4 NCBITaxa database must have been downloaded before).
 
   * Example
 

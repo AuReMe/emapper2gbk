@@ -250,8 +250,22 @@ def check_gbks_from_dir_genome_mode(gbk_dir):
     return
 
 
+def test_gbk_gene_mode_test_ete():
+    """Test genes mode with file as input and using ete4 for taxonomic assignation.
+    """
+    gbk_test = 'test_no_gff.gbk'
+
+    print("*** Test genes mode with file as input with cli***")
+    gbk_creation(FNA_INPUT, FAA_INPUT, ANNOT_INPUT, ORG_NAME, gbk_test, GO_FILE, ete_option=True)
+
+    compare_two_gbks(EXPECTED_GBK_NO_GFF, gbk_test)
+    os.remove(gbk_test)
+
+    return
+
+
 def test_gbk_gene_mode_test_cli_ete():
-    """Test genes mode  with file as input and using ete3 for taxonomic assignation.
+    """Test genes mode with file as input and using ete4 for taxonomic assignation.
     """
     gbk_test = 'test_no_gff.gbk'
 
@@ -265,8 +279,23 @@ def test_gbk_gene_mode_test_cli_ete():
     return
 
 
+def test_gbk_genomes_mode_test_ete():
+    """Test genes mode with file as input and using ete4 for taxonomic assignation.
+    """
+    gbk_test = 'test_no_gff.gbk'
+
+    print("*** Test genes mode with file as input with cli***")
+    gbk_creation(GENOME_FNA_INPUT, GENOME_FAA_INPUT, GENOME_ANNOT_INPUT, ORG_NAME, gbk_test, GO_FILE, gff=GENOME_GFF_INPUT,
+                 ete_option=True)
+
+    compare_two_gbks(EXPECTED_GBK_WITH_GFF, gbk_test)
+    os.remove(gbk_test)
+
+    return
+
+
 def test_gbk_genomes_mode_test_cli_ete():
-    """Test genomes mode with file as input with cli and using ete3 for taxonomic assignation.
+    """Test genomes mode with file as input with cli and using ete4 for taxonomic assignation.
     """
     gbk_test = 'test_gff.gbk'
     print("*** Test genomes mode with file as input with cli***")
@@ -281,7 +310,7 @@ def test_gbk_genomes_mode_test_cli_ete():
 
 
 def test_gbk_genomes_mode_folder_cli_ete():
-    """Test genomes mode with folders as input with cli and using ete3 for taxonomic assignation.
+    """Test genomes mode with folders as input with cli and using ete4 for taxonomic assignation.
     """
     gbk_dir_test = 'gbk_mg'
 
@@ -296,8 +325,23 @@ def test_gbk_genomes_mode_folder_cli_ete():
     return
 
 
+def test_gbk_genes_mode_folder_one_annot_file_ete():
+    """Test genes mode with folders as input with one annotation file with cli and using ete4 for taxonomic assignation.
+    """
+    gbk_dir_test = 'gbk_mg'
+
+    print("*** Test genes mode with folders as input with one annotation file with cli ***")
+    gbk_creation(FNA_DIR, FAA_DIR, ANNOT_INPUT, ORG_FILE, gbk_dir_test, GO_FILE,
+                 ete_option=True)
+
+    check_gbks_from_dir_genes_mode(gbk_dir_test)
+    shutil.rmtree(gbk_dir_test)
+
+    return
+
+
 def test_gbk_genes_mode_folder_one_annot_file_cli_ete():
-    """Test genes mode with folders as input with one annotation file with cli and using ete3 for taxonomic assignation.
+    """Test genes mode with folders as input with one annotation file with cli and using ete4 for taxonomic assignation.
     """
     gbk_dir_test = 'gbk_mg'
 

@@ -1,4 +1,4 @@
-# Copyright (C) 2019-2024 Clémence Frioux & Arnaud Belcour - Inria Dyliss - Pleiade
+# Copyright (C) 2019-2025 Clémence Frioux & Arnaud Belcour - Inria Dyliss - Pleiade
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Lesser General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
@@ -27,7 +27,7 @@ import traceback
 
 from Bio.SeqRecord import SeqRecord
 from Bio import SeqFeature as sf
-from ete3 import NCBITaxa
+from ete4 import NCBITaxa
 
 try:
     # Import to be compatible with biopython version lesser than 1.78
@@ -302,7 +302,7 @@ def create_taxonomic_data_ete(species_name):
             break
         else:
             if index ==0:
-                logger.critical('/!\\ Error with {} this taxa has not been found in ete3 NCBITaxa Database'.format(taxon))
+                logger.critical('/!\\ Error with {} this taxa has not been found in ete4 NCBITaxa Database'.format(taxon))
                 logger.critical('/!\\ Check the name of the taxa and its presence in the NCBITaxa database.')
                 logger.critical('/!\\ No genbank will be created for {}.'.format(taxon))
                 return None
