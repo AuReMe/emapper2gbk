@@ -28,7 +28,8 @@ jobs:
     strategy:
       matrix:
         platform: [ubuntu-latest, macos-latest, windows-latest]
-        python-version: ["3.14"]
+        python-version: ["3.12"]
+        architecture: <arm64|x86>
     runs-on: ${{ matrix.platform }}
 
     steps:
