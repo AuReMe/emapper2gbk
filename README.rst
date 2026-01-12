@@ -263,7 +263,7 @@ Convert GFF, fastas, annotation table and species name into Genbank.
 
     * Metagenomic
 
-    emapper2gbk genes -fn genome_dir/ -fp proteome_dir/ -o gbk_dir/ -a gene_cat_ggnog_annotation.tsv --one-annot-file [-go go-basic.obo]
+    emapper2gbk genes -fn genome_dir/ -fp proteome_dir/ -o gbk_dir/ -a gene_cat_eggnog_annotation.tsv [-go go-basic.obo]
 
     You can give the GO ontology as an input to the program, it will be otherwise downloaded during the run. You can download it here: http://purl.obolibrary.org/obo/go/go-basic.obo .
     The program requests the NCBI database to retrieve taxonomic information of the organism. However, if the organism is "bacteria" or "metagenome", the taxonomic information will not have to be retrieved online.
@@ -278,8 +278,8 @@ Convert GFF, fastas, annotation table and species name into Genbank.
     valid subcommands:
 
     {genes,genomes}
-        genes          genes mode : 1-n annot, 1-n faa, 1-n fna (gene sequences) --> 1 gbk
-        genomes        genomes mode: 1-n contig/chromosome fasta, 1-n protein fasta, 1-n GFF, 1-n annot --> 1 gbk
+        genes          genes mode : 1-n annot, 1-n faa, 1-n fna (gene sequences) --> 1-n gbk
+        genomes        genomes mode: 1-n contig/chromosome fasta, 1-n protein fasta, 1-n GFF, 1-n annot --> 1-n gbk
 
 
 * Genomes mode

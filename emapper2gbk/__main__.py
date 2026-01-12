@@ -1,4 +1,4 @@
-# Copyright (C) 2019-2025 Clémence Frioux & Arnaud Belcour - Inria Dyliss - Pleiade
+# Copyright (C) 2019-2026 Clémence Frioux & Arnaud Belcour - Inria Dyliss - Pleiade
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Lesser General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
@@ -209,7 +209,7 @@ def cli():
         dest="cmd")
     genes_parser = subparsers.add_parser(
         "genes",
-        help="genes mode : 1-n annot, 1-n faa, 1-n fna (gene sequences) --> 1 gbk",
+        help="genes mode : 1-n annot, 1-n faa, 1-n fna (gene sequences) --> 1-n gbk",
         parents=[
             parent_parser_fna, parent_parser_faa, parent_parser_o,
             parent_parser_ann, parent_parser_c, parent_parser_name, parent_parser_namef,
@@ -221,7 +221,7 @@ def cli():
     )
     genomes_parser = subparsers.add_parser(
         "genomes",
-        help="genomes mode: 1-n contig/chromosome fasta, 1-n protein fasta, 1-n GFF, 1-n annot --> 1 gbk",
+        help="genomes mode: 1-n contig/chromosome fasta, 1-n protein fasta, 1-n GFF, 1-n annot --> 1-n gbk",
         parents=[
             parent_parser_fna, parent_parser_faa, parent_parser_o, parent_parser_gff, parent_parser_gff_type,
             parent_parser_namef, parent_parser_name, parent_parser_ann,

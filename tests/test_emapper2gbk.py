@@ -39,7 +39,7 @@ ORG_NAME_ARCH = 'archaea'
 ORG_NAME_EUK = 'eukaryota'
 ORG_NAME_META = 'metagenome'
 ORG_NAME_CELL = 'cellular organisms'
-ORG_FULL_TAX = 'cellular organisms;Bacteria;Proteobacteria;Gammaproteobacteria;Enterobacterales;Enterobacteriaceae;Escherichia;Escherichia coli'
+ORG_FULL_TAX = 'cellular organisms;Bacteria;Pseudomonadota;Gammaproteobacteria;Enterobacterales;Enterobacteriaceae;Escherichia;Escherichia coli'
 ORG_FILE = os.path.join('test_data', 'organism_names.tsv')
 GO_FILE = 'go-basic.obo'
 
@@ -64,7 +64,7 @@ TYPE_CDS_GFF = os.path.join('test_data', 'data_gff_type_accession', 'betaox_geno
 TYPE_MRNA_GFF = os.path.join('test_data', 'data_gff_type_accession', 'betaox_genomes_mRNA.gff')
 TYPE_GENE_GFF = os.path.join('test_data', 'data_gff_type_accession', 'betaox_genomes_gene.gff')
 
-ANNOTATIONS_TYPES = ['go_function', 'go_process', 'go_component', 'EC_number', 'locus']
+ANNOTATIONS_TYPES = ['go_function', 'go_process', 'go_component', 'EC_number', 'locus', 'db_xref']
 
 ANNOTATIONS_BY_GENOME = {'gene1781':{'go_component':['GO:0005575', 'GO:0005623', 'GO:0005886',
                                                     'GO:0016020', 'GO:0044464', 'GO:0071944'],

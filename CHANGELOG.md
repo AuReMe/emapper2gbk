@@ -1,5 +1,16 @@
 # Changelog
 
+# emapper2gbk v0.3.3 (2026-01-12)
+
+## Modify
+
+* update license year.
+
+## Fix
+
+* several typos.
+* inconsistent behaviour in `emapper2gbk genes`.
+
 # emapper2gbk v0.3.2 (2025-04-02)
 
 ## Modify

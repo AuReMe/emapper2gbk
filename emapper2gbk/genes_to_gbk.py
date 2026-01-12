@@ -1,4 +1,4 @@
-# Copyright (C) 2019-2025 Clémence Frioux & Arnaud Belcour - Inria Dyliss - Pleiade
+# Copyright (C) 2019-2026 Clémence Frioux & Arnaud Belcour - Inria Dyliss - Pleiade
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU Lesser General Public License as published by
 # the Free Software Foundation, either version 3 of the License, or
@@ -51,7 +51,7 @@ def faa_to_gbk(nucleic_fasta:str, protein_fasta:str, annot:Union[str, dict],
         org (str): organims name or mapping file
         output_path (str): output file or directory
         gobasic (str): path to go-basic.obo file or dictionary
-        merge_genes_fake_contig (int): merge genes into fake contig. The int associted to merge is the number of genes per fake contigs.
+        merge_genes_fake_contig (int): merge genes into fake contig. The associated int is the number of genes per fake contigs.
         ete_option (bool): to use ete4 NCBITaxa database for taxonomic ID assignation instead of request on the EBI taxonomy database.
     """
     check_valid_path([nucleic_fasta, protein_fasta])
@@ -62,7 +62,12 @@ def faa_to_gbk(nucleic_fasta:str, protein_fasta:str, annot:Union[str, dict],
     gene_nucleic_seqs = OrderedDict()
 
     for record in SeqIO.parse(nucleic_fasta, "fasta"):
-        gene_nucleic_seqs[record.id] = record.seq
+        # If id is numeric, change it
+        if record.id.isnumeric():
+            id_gene = f"gene_{record.id}"
+        else:
+            id_gene = record.id
+        gene_nucleic_seqs[id_gene] = record.seq
 
     # Dictionary with gene id as key and protein sequence as value.
     gene_protein_seqs = OrderedDict()
@@ -129,13 +134,6 @@ def create_genbank(gene_nucleic_seqs, gene_protein_seqs, annot,
         # Create a SeqRecord object using gene information.
         record = record_info(gene_nucleic_id, gene_nucleic_seqs[gene_nucleic_id], species_informations)
 
-        # If id is numeric, change it
-        if gene_nucleic_id.isnumeric():
-            id_gene = f"gene_{gene_nucleic_id}"
-        elif "|" in gene_nucleic_id:
-            id_gene = gene_nucleic_id.split("|")[1]
-        else:
-            id_gene = gene_nucleic_id
         start_position = 1
         end_position = len(gene_nucleic_seqs[gene_nucleic_id])
         strand = 0
@@ -143,13 +141,13 @@ def create_genbank(gene_nucleic_seqs, gene_protein_seqs, annot,
                                                             end_position,
                                                             strand),
                                                             type="gene")
-        new_feature_gene.qualifiers['locus_tag'] = id_gene
+        new_feature_gene.qualifiers['locus_tag'] = gene_nucleic_id
 
         # Add gene information to contig record.
         record.features.append(new_feature_gene)
 
-        new_cds_feature = create_cds_feature(id_gene, start_position, end_position, strand, annot, go_namespaces, go_alternatives, gene_protein_seqs)
-        new_cds_feature.qualifiers['locus_tag'] = id_gene
+        new_cds_feature = create_cds_feature(gene_nucleic_id, start_position, end_position, strand, annot, go_namespaces, go_alternatives, gene_protein_seqs)
+        new_cds_feature.qualifiers['locus_tag'] = gene_nucleic_id
 
         # Add CDS information to contig record
         record.features.append(new_cds_feature)

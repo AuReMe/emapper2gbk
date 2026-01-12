@@ -1,7 +1,7 @@
-LOCUS       _1781                   1701 bp    DNA              BCT 20-SEP-2022
+LOCUS       gene_1781                   1701 bp    DNA              BCT 20-SEP-2022
 DEFINITION  Escherichia coli genome.
-ACCESSION   1781
-VERSION     1781
+ACCESSION   gene_1781
+VERSION     gene_1781
 KEYWORDS    Escherichia coli.
 SOURCE      .
   ORGANISM  Escherichia coli
@@ -9,7 +9,7 @@ SOURCE      .
             Enterobacteriaceae; Escherichia.
 FEATURES             Location/Qualifiers
      source          1..1701
-                     /scaffold="1781"
+                     /scaffold="gene_1781"
                      /db_xref="taxon:562"
      gene            2..1701
                      /locus_tag="gene_1781"
@@ -92,10 +92,10 @@ ORIGIN
      1621 tcaggtaaaa tacaaaagtt tttgttaaga aaagatatta tgcggcgttt aacgcaggat
      1681 gtctgtgaag agattgaata a
 //
-LOCUS       _1887                   1686 bp    DNA              BCT 20-SEP-2022
+LOCUS       gene_1887                   1686 bp    DNA              BCT 20-SEP-2022
 DEFINITION  Escherichia coli genome.
-ACCESSION   1887
-VERSION     1887
+ACCESSION   gene_1887
+VERSION     gene_1887
 KEYWORDS    Escherichia coli.
 SOURCE      .
   ORGANISM  Escherichia coli
@@ -103,7 +103,7 @@ SOURCE      .
             Enterobacteriaceae; Escherichia.
 FEATURES             Location/Qualifiers
      source          1..1686
-                     /scaffold="1887"
+                     /scaffold="gene_1887"
                      /db_xref="taxon:562"
      gene            2..1686
                      /locus_tag="gene_1887"
@@ -277,10 +277,10 @@ ORIGIN
      1621 gtcggaaaaa ttttgcgacg agaattacgt gacgaagcgc gcggcaaagt ggacaataaa
      1681 gcctga
 //
-LOCUS       _226                    2445 bp    DNA              BCT 20-SEP-2022
+LOCUS       gene_226                    2445 bp    DNA              BCT 20-SEP-2022
 DEFINITION  Escherichia coli genome.
-ACCESSION   226
-VERSION     226
+ACCESSION   gene_226
+VERSION     gene_226
 KEYWORDS    Escherichia coli.
 SOURCE      .
   ORGANISM  Escherichia coli
@@ -288,7 +288,7 @@ SOURCE      .
             Enterobacteriaceae; Escherichia.
 FEATURES             Location/Qualifiers
      source          1..2445
-                     /scaffold="226"
+                     /scaffold="gene_226"
                      /db_xref="taxon:562"
      gene            2..2445
                      /locus_tag="gene_226"
@@ -428,10 +428,10 @@ ORIGIN
      2341 gaaagccgtc tgcgcagtat taacgttgat gactttgatc cggaagagct ggcgacgaag
      2401 ccggtaaagt tgccggagaa agtgcggaaa gttgaagccg cgtaa
 //
-LOCUS       _2441                   2145 bp    DNA              BCT 20-SEP-2022
+LOCUS       gene_2441                   2145 bp    DNA              BCT 20-SEP-2022
 DEFINITION  Escherichia coli genome.
-ACCESSION   2441
-VERSION     2441
+ACCESSION   gene_2441
+VERSION     gene_2441
 KEYWORDS    Escherichia coli.
 SOURCE      .
   ORGANISM  Escherichia coli
@@ -439,7 +439,7 @@ SOURCE      .
             Enterobacteriaceae; Escherichia.
 FEATURES             Location/Qualifiers
      source          1..2145
-                     /scaffold="2441"
+                     /scaffold="gene_2441"
                      /db_xref="taxon:562"
      gene            2..2145
                      /locus_tag="gene_2441"
@@ -631,10 +631,10 @@ ORIGIN
      2041 cttgccacgc agtatggttc ccgttttacc ccttgcgagc gtttggtcga gatgggcgcg
      2101 cgtggggaaa gtttttggaa aacaactgca actgacctgc aataa
 //
-LOCUS       _2442                   1311 bp    DNA              BCT 20-SEP-2022
+LOCUS       gene_2442                   1311 bp    DNA              BCT 20-SEP-2022
 DEFINITION  Escherichia coli genome.
-ACCESSION   2442
-VERSION     2442
+ACCESSION   gene_2442
+VERSION     gene_2442
 KEYWORDS    Escherichia coli.
 SOURCE      .
   ORGANISM  Escherichia coli
@@ -642,7 +642,7 @@ SOURCE      .
             Enterobacteriaceae; Escherichia.
 FEATURES             Location/Qualifiers
      source          1..1311
-                     /scaffold="2442"
+                     /scaffold="gene_2442"
                      /db_xref="taxon:562"
      gene            2..1311
                      /locus_tag="gene_2442"
@@ -766,10 +766,10 @@ ORIGIN
      1201 atgattaccc agacattgca tgaacttcgc cgtcgcggcg gtggatttgg tttagttacc
      1261 gcctgtgctg ccggtgggct tggcgcggca atggttctgg aggcggaata a
 //
-LOCUS       _3987                   1164 bp    DNA              BCT 20-SEP-2022
+LOCUS       gene_3987                   1164 bp    DNA              BCT 20-SEP-2022
 DEFINITION  Escherichia coli genome.
-ACCESSION   3987
-VERSION     3987
+ACCESSION   gene_3987
+VERSION     gene_3987
 KEYWORDS    Escherichia coli.
 SOURCE      .
   ORGANISM  Escherichia coli
@@ -777,7 +777,7 @@ SOURCE      .
             Enterobacteriaceae; Escherichia.
 FEATURES             Location/Qualifiers
      source          1..1164
-                     /scaffold="3987"
+                     /scaffold="gene_3987"
                      /db_xref="taxon:562"
      gene            2..1164
                      /locus_tag="gene_3987"
@@ -885,10 +885,10 @@ ORIGIN
      1081 gaacgcaaag acgttcagtt tggtctggcg acgatgtgta tcggtctggg tcagggtatt
      1141 gcgacggtgt ttgagcgggt ttaa
 //
-LOCUS       _3988                   2190 bp    DNA              BCT 20-SEP-2022
+LOCUS       gene_3988                   2190 bp    DNA              BCT 20-SEP-2022
 DEFINITION  Escherichia coli genome.
-ACCESSION   3988
-VERSION     3988
+ACCESSION   gene_3988
+VERSION     gene_3988
 KEYWORDS    Escherichia coli.
 SOURCE      .
   ORGANISM  Escherichia coli
@@ -896,7 +896,7 @@ SOURCE      .
             Enterobacteriaceae; Escherichia.
 FEATURES             Location/Qualifiers
      source          1..2190
-                     /scaffold="3988"
+                     /scaffold="gene_3988"
                      /db_xref="taxon:562"
      gene            2..2190
                      /locus_tag="gene_3988"
