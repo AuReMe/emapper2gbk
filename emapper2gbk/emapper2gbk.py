@@ -52,7 +52,8 @@ def gbk_creation(nucleic_fasta:str, protein_fasta:str, annot:str,
                     for input_file in [nucleic_fasta, protein_fasta, annot]}
 
     if gff:
-        types[gff] = 'directory' if os.path.isdir(gff) else 'file' if os.path.isfile(gff) else None
+        if gff != 'fasta-only':
+            types[gff] = 'directory' if os.path.isdir(gff) else 'file' if os.path.isfile(gff) else None
 
     if all(input_file == 'file' for input_file in types.values()):
         directory_mode = False
@@ -142,7 +143,7 @@ def gbk_creation(nucleic_fasta:str, protein_fasta:str, annot:str,
             except AssertionError:
                 logger.critical(f"Annotations dir {annot} must contain only '.tsv' files")
                 sys.exit(1)
-        if gff:
+        if gff and gff != 'fasta-only':
             try:
                 assert set([get_basename(i) for i in os.listdir(gff)]) == all_genomes
             except AssertionError:

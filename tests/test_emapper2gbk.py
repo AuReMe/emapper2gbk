@@ -64,6 +64,10 @@ TYPE_CDS_GFF = os.path.join('test_data', 'data_gff_type_accession', 'betaox_geno
 TYPE_MRNA_GFF = os.path.join('test_data', 'data_gff_type_accession', 'betaox_genomes_mRNA.gff')
 TYPE_GENE_GFF = os.path.join('test_data', 'data_gff_type_accession', 'betaox_genomes_gene.gff')
 
+FASTA_ONLY_GENOME_FNA_DIR = os.path.join('test_data', 'fasta_only', 'fna_genomes_mode')
+FASTA_ONLY_GENOME_FAA_DIR = os.path.join('test_data', 'fasta_only', 'faa_genomes')
+FASTA_ONLY_GENOME_ANN_DIR = os.path.join('test_data', 'fasta_only', 'ann_genomes')
+
 ANNOTATIONS_TYPES = ['go_function', 'go_process', 'go_component', 'EC_number', 'locus', 'db_xref']
 
 ANNOTATIONS_BY_GENOME = {'gene1781':{'go_component':['GO:0005575', 'GO:0005623', 'GO:0005886',
@@ -266,6 +270,31 @@ def check_gbks_from_dir_genome_mode(gbk_dir):
     expected_genomes = {}
     for expected_gene in ANNOTATIONS_BY_GENOME:
         expected_genomes['cds-'+expected_gene] = ANNOTATIONS_BY_GENOME[expected_gene]
+    for gbk in os.listdir(gbk_dir):
+        gbk_path = os.path.join(gbk_dir, gbk)
+        for record in SeqIO.parse(gbk_path, "genbank"):
+            for feature in record.features:
+                if feature.type == 'CDS':
+                    gene = feature.qualifiers['locus_tag'][0]
+                    qualifier_annotations = {qualifier: feature.qualifiers[qualifier] for qualifier in feature.qualifiers}
+                    annotations = {}
+                    annotations[gene] = qualifier_annotations
+                    for ann in ANNOTATIONS_TYPES:
+                        if ann in annotations[gene]:
+                            assert set(annotations[gene][ann]) == set(expected_genomes[gene][ann])
+
+    return
+
+
+def check_gbks_from_dir_genome_mode_fasta_only(gbk_dir):
+    """Check if annotations in each gbk file are consistent with the expected ones.
+
+    Args:
+        gbk_dir (str): path to gbk directory
+    """
+    expected_genomes = {}
+    for expected_gene in ANNOTATIONS_BY_GENOME:
+        expected_genomes['NC_000913_3_'+expected_gene] = ANNOTATIONS_BY_GENOME[expected_gene]
     for gbk in os.listdir(gbk_dir):
         gbk_path = os.path.join(gbk_dir, gbk)
         for record in SeqIO.parse(gbk_path, "genbank"):
@@ -775,6 +804,41 @@ def test_gbk_genomes_numeric_test():
 
     return
 
+
+def test_gbk_genomes_mode_folder_fasta_only():
+    """Test genomes mode with folders as input
+    """
+    print("*** Test genomes mode with folders as input ***")
+    gbk_dir_test = 'gbk_mg'
+    gbk_creation(nucleic_fasta=FASTA_ONLY_GENOME_FNA_DIR,
+                protein_fasta=FASTA_ONLY_GENOME_FAA_DIR,
+                annot=FASTA_ONLY_GENOME_ANN_DIR,
+                org=ORG_FILE,
+                gff='fasta-only',
+                gff_type='fasta-only',
+                output_path=gbk_dir_test,
+                gobasic=GO_FILE)
+
+    check_gbks_from_dir_genome_mode_fasta_only(gbk_dir_test)
+    shutil.rmtree(gbk_dir_test)
+
+    return
+
+
+def test_gbk_genomes_mode_folder_fasta_only_cli():
+    """Test genomes mode with folders as input
+    """
+    print("*** Test genomes mode with folders as input ***")
+    gbk_dir_test = 'gbk_mg'
+    subprocess.call(['emapper2gbk', 'genomes', '-fn', FASTA_ONLY_GENOME_FNA_DIR, '-fp', FASTA_ONLY_GENOME_FAA_DIR,
+                        '-a', FASTA_ONLY_GENOME_ANN_DIR, '-g', 'fasta-only', '-gt', 'fasta-only', '-o', gbk_dir_test, '-go', GO_FILE,
+                        '-n', ORG_FILE])
+
+    check_gbks_from_dir_genome_mode_fasta_only(gbk_dir_test)
+    shutil.rmtree(gbk_dir_test)
+
+    return
+
 if __name__ == "__main__":
     test_gbk_genes_mode_test()
     test_gbk_genes_mode_lineage_test()
@@ -798,4 +862,6 @@ if __name__ == "__main__":
     test_gbk_genomes_mode_CDS_test()
     test_gbk_genomes_mode_mRNA_test()
     test_gbk_genomes_mode_gene_test()
+    test_gbk_genomes_mode_folder_fasta_only()
+    test_gbk_genomes_mode_folder_fasta_only_cli()
 
